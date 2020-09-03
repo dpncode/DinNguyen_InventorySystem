@@ -19,7 +19,7 @@ public class Inventory {
 + getAllParts():ObservableList<Part>
 + getAllProducts():ObservableList<Product>
 
-    
+
 
 
 
