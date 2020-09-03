@@ -1,5 +1,7 @@
 package model;
 
+import javafx.collections.ObservableList;
+
 public class Product {
 
     - associatedParts:ObservableList<Part>
@@ -73,7 +75,7 @@ public class Product {
     }
 
 
-    //TODO: Cannot generate constructors for stock, min and max.
+    //TODO: Cannot generate constructors for stock, min and max. Error message: Constructors already exist
     private int stock;
 
     public int getStock() {
