@@ -22,7 +22,9 @@ public class abstract Part {
         + getStock():int
         + getMin():int
         + getMax():int
-
+//Inventory a.k.a Stock
+//TODO: beware constructor for Max and Min, in constructor we must pass in Min first and then Max vs what is displayed on the
+// GUI where Max is 1st and Min is second.
 /**
  * Supplied class Part.java
  */
