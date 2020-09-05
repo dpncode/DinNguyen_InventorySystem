@@ -1,6 +1,6 @@
 package model;
 
-public class abstract Part {
+/*public class abstract Part {
 
         - id : int
         - name : String
@@ -21,10 +21,9 @@ public class abstract Part {
         + getPrice():double
         + getStock():int
         + getMin():int
-        + getMax():int
+        + getMax():int*/
 //Inventory a.k.a Stock
-//TODO: beware constructor for Max and Min, in constructor we must pass in Min first and then Max vs what is displayed on the
-// GUI where Max is 1st and Min is second.
+
 /**
  * Supplied class Part.java
  */
@@ -40,18 +39,23 @@ public abstract class Part {
         private int stock;
         private int min;
         private int max;
-        public Part(int id, String name, double price, int stock, int min, int max) {
+        //constructor  it si already defined here
+        public Part(int id, String name, double price, int stock, int max, int min) {
                 this.id = id;
                 this.name = name;
                 this.price = price;
                 this.stock = stock;
-                this.min = min;
                 this.max = max;
+                this.min = min; //note constructor for Max and Min, in constructor we must pass in Min first and then Max vs what is displayed on the
+// GUI where Max is 1st and Min is second.
+
         }
 
         /**
          * @return the id
          */
+
+
         public int getId() {
                 return id;
         }

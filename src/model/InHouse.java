@@ -1,15 +1,21 @@
 package model;
 
-public class InHouse {
+
+/**
+ *extends keyword used in class so constructor of the abstract class is called through the "super" keyword
+ *
+ * Then pass all the other variables to the abstract class
+ * */
+public class InHouse extends Part {
 
   /*  + InHouse(id : int, name : String,
               price : double, stock : int, min : int, max : int,
               machineId:int)
 */
 
-//TODO: complete constructor after Part class is done
     //constructor
-    public InHouse(int machineId) {
+    public InHouse(int id,String name,double price,int stock, int min, int max,int machineId) {
+        super(id,name,price,stock,min,max);
         this.machineId = machineId;
     }
 
