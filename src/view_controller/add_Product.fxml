@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="484.0" layoutY="356.0" prefHeight="234.0" prefWidth="378.0" style="-fx-background-color: gray; -fx-background-radius: 20;">
          <children>
             <TableView layoutX="22.0" layoutY="28.0" prefHeight="186.0" prefWidth="334.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Part ID" />
-                <TableColumn prefWidth="75.0" text="Part Name" />
-                  <TableColumn prefWidth="75.0" text="Inv. Level" />
-                  <TableColumn prefWidth="107.99997558593748" text="Cost per Unit" />
+                <TableColumn fx:id="partID" prefWidth="75.0" text="Part ID" />
+                <TableColumn fx:id="partName" prefWidth="75.0" text="Part Name" />
+                  <TableColumn fx:id="inventoryLvl" prefWidth="75.0" text="Inv. Level" />
+                  <TableColumn fx:id="costPerUnit" prefWidth="107.99997558593748" text="Cost per Unit" />
               </columns>
             </TableView>
          </children>
@@ -27,38 +23,39 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button layoutX="780.0" layoutY="654.0" mnemonicParsing="false" text="Cancel" />
-      <Button layoutX="688.0" layoutY="654.0" mnemonicParsing="false" text="Save" />
-      <Button layoutX="688.0" layoutY="606.0" mnemonicParsing="false" text="Remove Associated Part" />
+      <Button fx:id="cancelBtn" layoutX="780.0" layoutY="654.0" mnemonicParsing="false" text="Cancel" />
+      <Button fx:id="saveBtn" layoutX="688.0" layoutY="654.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="removeBtn" layoutX="688.0" layoutY="606.0" mnemonicParsing="false" text="Remove Associated Part" />
       <AnchorPane layoutX="484.0" layoutY="46.0" prefHeight="289.0" prefWidth="378.0" style="-fx-background-color: gray; -fx-background-radius: 20;">
          <children>
             <TableView layoutX="28.0" layoutY="56.0" prefHeight="186.0" prefWidth="334.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Part ID" />
-                  <TableColumn prefWidth="75.0" text="Part Name" />
-                  <TableColumn prefWidth="75.0" text="Inv. Level" />
-                  <TableColumn prefWidth="107.99997558593748" text="Cost per Unit" />
+                  <TableColumn fx:id="partID" prefWidth="75.0" text="Part ID" />
+                  <TableColumn fx:id="partName" prefWidth="75.0" text="Part Name" />
+                  <TableColumn fx:id="InventoryLvl" prefWidth="75.0" text="Inv. Level" />
+                  <TableColumn fx:id="costPerUnit" prefWidth="107.99997558593748" text="Cost per Unit" />
                </columns>
             </TableView>
-            <Button layoutX="302.0" layoutY="250.0" mnemonicParsing="false" text="Add" />
-            <TextField layoutX="176.0" layoutY="18.0" prefHeight="26.0" prefWidth="170.0" style="-fx-opacity: .5;" text="Search by Part ID or Name" />
+            <Button fx:id="addBtn" layoutX="302.0" layoutY="250.0" mnemonicParsing="false" text="Add" />
+            <TextField fx:id="searchFld" layoutX="176.0" layoutY="18.0" prefHeight="26.0" prefWidth="170.0" style="-fx-opacity: .5;" text="Search by Part ID or Name" />
+            <Button fx:id="searchBtn" layoutX="109.0" layoutY="19.0" mnemonicParsing="false" text="Search" />
          </children>
       </AnchorPane>
-      <TextField editable="false" layoutX="122.0" layoutY="140.0" opacity="0.3" prefHeight="26.0" prefWidth="140.0" text="Auto Gen- Disabled">
+      <TextField fx:id="idFld" editable="false" layoutX="122.0" layoutY="140.0" opacity="0.3" prefHeight="26.0" prefWidth="140.0" text="Auto Gen- Disabled">
          <font>
             <Font size="11.0" />
          </font>
       </TextField>
       <Label layoutX="24.0" layoutY="144.0" text="ID" />
-      <TextField layoutX="122.0" layoutY="180.0" prefHeight="26.0" prefWidth="140.0" />
+      <TextField fx:id="nameFld" layoutX="122.0" layoutY="180.0" prefHeight="26.0" prefWidth="140.0" />
       <Label layoutX="24.0" layoutY="184.0" text="Name" />
-      <TextField layoutX="122.0" layoutY="217.0" prefHeight="26.0" prefWidth="140.0" />
+      <TextField fx:id="inventoryFld" layoutX="122.0" layoutY="217.0" prefHeight="26.0" prefWidth="140.0" />
       <Label layoutX="24.0" layoutY="221.0" text="Inventory" />
-      <TextField layoutX="122.0" layoutY="251.0" prefHeight="26.0" prefWidth="140.0" />
+      <TextField fx:id="priceFld" layoutX="122.0" layoutY="251.0" prefHeight="26.0" prefWidth="140.0" />
       <Label layoutX="24.0" layoutY="255.0" text="Price/Cost" />
-      <TextField layoutX="122.0" layoutY="285.0" prefHeight="26.0" prefWidth="140.0" />
+      <TextField fx:id="maxFld" layoutX="122.0" layoutY="285.0" prefHeight="26.0" prefWidth="140.0" />
       <Label layoutX="24.0" layoutY="289.0" text="Max" />
-      <TextField layoutX="310.0" layoutY="285.0" prefHeight="26.0" prefWidth="90.0" />
+      <TextField fx:id="minFld" layoutX="310.0" layoutY="285.0" prefHeight="26.0" prefWidth="90.0" />
       <Label layoutX="276.0" layoutY="289.0" text="Min" />
    </children>
 </AnchorPane>

@@ -21,7 +21,7 @@ public class InventoryProgram extends Application { // this class extends applic
         // all the data is stored in root which is to be shown from class Stage
         Parent root = FXMLLoader.load(getClass().getResource("/view_controller/mainscreen.fxml"));
         //primaryStage.setTitle("Hello World");
-        //primarystage is the refernce of Stage class which is used tp show GUI to the user//
+        //primarystage is the reference of Stage class which is used tp show GUI to the user//
         //setscene create a scene for the root which contains the design of the file
         primaryStage.setScene(new Scene(root));
         //show is the method to load the window
