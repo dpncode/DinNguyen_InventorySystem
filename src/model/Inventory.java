@@ -409,7 +409,7 @@ ObservableList<Part> allParts = new ObservableList<Part>() { //   - allParts:Obs
         return true;
     }
 
-    public boolean deleteProdcut(Product selectedProduct){//+ deleteProduct(selectedProduct:Product):boolean
+    public boolean deleteProduct(Product selectedProduct){//+ deleteProduct(selectedProduct:Product):boolean
         return true;
     }
 

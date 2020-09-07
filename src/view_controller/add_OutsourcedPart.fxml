@@ -4,7 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="add_part" fx:id="addOursourced" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<!-- AnchorPane add:  fx:controller="view_controller.OutsourcedController" - when adding outsourced parts it goes to controller-->
+<AnchorPane  fx:controller="view_controller.OutsourcedController"  id="add_part" fx:id="addOutsourced" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="29.0" layoutY="25.0" text="Add Part">
          <font>
@@ -31,7 +32,7 @@
       <Label layoutX="47.0" layoutY="259.0" text="Company Name" />
       <TextField fx:id="minFld" layoutX="364.0" layoutY="219.0" prefHeight="26.0" prefWidth="140.0" />
       <Label layoutX="334.0" layoutY="227.0" text="Min" />
-      <Button fx:id="saveBtn" layoutX="240.0" layoutY="330.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="saveBtn" layoutX="240.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#saveOutsourcedPart" text="Save" />
       <Button fx:id="cancelBtn" layoutX="303.0" layoutY="330.0" mnemonicParsing="false" text="Cancel" />
    </children>
 </AnchorPane>

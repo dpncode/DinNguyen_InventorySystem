@@ -246,8 +246,6 @@ public class Product {
         this.price = price;
     }
 
-
-    //TODO: Cannot generate constructors for stock, min and max. Error message: Constructors already exist
     private int stock;
 
     public int getStock() {
