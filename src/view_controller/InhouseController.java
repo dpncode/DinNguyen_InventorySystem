@@ -1,14 +1,27 @@
 package view_controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import model.InHouse;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class InhouseController {
     //creating textfield so that it can be called through any method
     //@FXML is used to fetch the fields through the given id
     @FXML
     private TextField nameFld,inventoryFld,priceFld,maxFld,machineFld,minFld;
+    @FXML
+    private RadioButton OSradio;
+    int id = 0;
+    ArrayList<InHouse> inHouses = new ArrayList<InHouse>();
     public void addInhouse(){
 
     }
@@ -23,8 +36,16 @@ public class InhouseController {
         System.out.println(machineFld.getText());
         System.out.println(minFld.getText());
         //Todo: save inhouse part
+
         String name = nameFld.getText();
-        String inventory = inventoryFld.getText();
+        int inventory = Integer.parseInt(inventoryFld.getText());
+        double price = Double.parseDouble(priceFld.getText()); //the value that came from the gui is string so we are converting it to double using parse
+        int min  = Integer.parseInt(minFld.getText());
+        int max = Integer.parseInt(maxFld.getText());
+        int machineId = Integer.parseInt(machineFld.getText());
+        id=+1;//ID auto generated, auto increment
+        inHouses.add(new InHouse(id,name,price,inventory,min,max,machineId));
+
         //InHouse inh = new InHouse(11,)
         //send the values to PartController
         //create a reference of PartController her
@@ -32,4 +53,25 @@ public class InhouseController {
         pc.getValues(nameFld.getText(),inventoryFld.getText(),priceFld.getText(),maxFld.getText(),machineFld.getText(),minFld.getText());
 
     }
+    //examplle code to display the added part
+    //Todo: to be used later to display in the table
+public void display(){
+    for (InHouse a : inHouses){
+        System.out.println(a.getName());
+    }
+}
+    public void showOutsourcePart(MouseEvent mouseEvent) throws IOException {
+        System.out.println("radio buttne selected ");
+        Stage stage = (Stage) OSradio.getScene().getWindow();
+        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("/view_controller/add_OutsourcedPart.fxml"));
+        System.out.println(root);
+        //primaryStage is the reference of stage class to prepage a location to show the fxml file
+        Stage primaryStage = new Stage(); //
+        //a setscene is the method to set the fxml design to  the primary stage
+        primaryStage.setScene(new Scene(root));
+        //show is the method to show the loaded file
+        primaryStage.show();
+    }
+
 }

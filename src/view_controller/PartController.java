@@ -1,15 +1,17 @@
 package view_controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PartController {
-
+@FXML private Button exitBtn; //Exit Button ID defined to fetch the button click
     //Add Part button
     //this method is called whenever mouse is clicked on the respective button in our case add button of mainsceeen
     public void showInhouse(MouseEvent mouseEvent) throws IOException {
@@ -19,6 +21,8 @@ public class PartController {
         //getclass fetch the class which contains the fxml file in our case it is mainscreen file
         // load is to get all the code into gui from FXMLloader class
         // all the data is stored in root which is to be shown from class Stage
+        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("/view_controller/add_InhousePart.fxml"));
         //primaryStage is the reference of stage class to prepage a location to show the fxml file
         Stage primaryStage = new Stage(); //
@@ -38,6 +42,7 @@ public class PartController {
         System.out.println(text5);
         //TODO: to show values to the mainscreen
     }
+
 
     //method to redirect to modify_InhousePart.fxml
     public void modifyInhouse(MouseEvent mouseEvent) throws IOException {
@@ -75,6 +80,9 @@ public class PartController {
     //TODO: finish exit button from mainscreen
     public void exitMain(MouseEvent mouseEvent) {
         System.out.println("exit");
+        //exitBtn is the id of the Exit Button in the mainscreen.fxml file which is defined at the top too
+        Stage stage = (Stage) exitBtn.getScene().getWindow();
+        stage.close();
 
     }
 
