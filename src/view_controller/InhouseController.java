@@ -19,9 +19,10 @@ public class InhouseController {
     @FXML
     private TextField nameFld,inventoryFld,priceFld,maxFld,machineFld,minFld;
     @FXML
-    private RadioButton OSradio;
+    private RadioButton OSradio;//Radio toggle to Outsourced screen
     int id = 0;
-    ArrayList<InHouse> inHouses = new ArrayList<InHouse>();
+    ArrayList<InHouse> inHouse = new ArrayList<InHouse>();
+
     public void addInhouse(){
 
     }
@@ -35,6 +36,7 @@ public class InhouseController {
         System.out.println(maxFld.getText());
         System.out.println(machineFld.getText());
         System.out.println(minFld.getText());
+        System.out.println("Saved to InHouse list");
         //Todo: save inhouse part
 
         String name = nameFld.getText();
@@ -44,24 +46,26 @@ public class InhouseController {
         int max = Integer.parseInt(maxFld.getText());
         int machineId = Integer.parseInt(machineFld.getText());
         id=+1;//ID auto generated, auto increment
-        inHouses.add(new InHouse(id,name,price,inventory,min,max,machineId));
+        inHouse.add(new InHouse(id,name,price,inventory,min,max,machineId));
 
         //InHouse inh = new InHouse(11,)
         //send the values to PartController
-        //create a reference of PartController her
+        //create a reference of PartController
         PartController pc = new PartController();
         pc.getValues(nameFld.getText(),inventoryFld.getText(),priceFld.getText(),maxFld.getText(),machineFld.getText(),minFld.getText());
 
     }
-    //examplle code to display the added part
+    //example code to display the added part
     //Todo: to be used later to display in the table
-public void display(){
-    for (InHouse a : inHouses){
-        System.out.println(a.getName());
+    public void display(String title, String s){
+        for (InHouse a : inHouse){
+            System.out.println(a.getName());
+        }
     }
-}
+
+    //radio button method to toggle from inhouse to outsourced
     public void showOutsourcePart(MouseEvent mouseEvent) throws IOException {
-        System.out.println("radio buttne selected ");
+        System.out.println("radio outsourced button selected ");
         Stage stage = (Stage) OSradio.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("/view_controller/add_OutsourcedPart.fxml"));
