@@ -76,6 +76,7 @@ public class InhouseController {
         primaryStage.setScene(new Scene(root));
         //show is the method to show the loaded file
         primaryStage.show();
+        System.out.println("test");
     }
 
 }

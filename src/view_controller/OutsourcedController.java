@@ -53,7 +53,7 @@ public class OutsourcedController {
         //create a reference of PartController
         PartController pc = new PartController();
         pc.getValues(nameFld.getText(),inventoryFld.getText(),priceFld.getText(),maxFld.getText(),companyFld.getText(),minFld.getText());
-
+        System.out.println("test");
     }
 
 

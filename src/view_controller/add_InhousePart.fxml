@@ -8,6 +8,7 @@
 
 <AnchorPane id="add_part" fx:id="addInhouse" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view_controller.InhouseController">
    <children>
+     <!-- //changes-->
       <Label layoutX="29.0" layoutY="25.0" text="Add Part">
          <font>
             <Font name="System Bold" size="12.0" />
