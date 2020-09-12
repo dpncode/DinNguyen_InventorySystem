@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="add_part" fx:id="modifyPartOutsourced" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="modify_OSpart" fx:controller="view_controller.OutsourcedController" fx:id="modifyPartOutsourced" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="29.0" layoutY="25.0" text="Modify Part">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <RadioButton layoutX="133.0" layoutY="25.0" mnemonicParsing="false" text="In-House" />
+      <RadioButton fx:id="modifyIHradio" layoutX="133.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#showModifyInhousePart" text="In-House" />
       <RadioButton layoutX="261.0" layoutY="25.0" mnemonicParsing="false" selected="true" text="Outsourced" />
       <TextField fx:id="idFld" editable="false" layoutX="151.0" layoutY="73.0" opacity="0.3" prefHeight="26.0" prefWidth="140.0" text="3">
          <font>

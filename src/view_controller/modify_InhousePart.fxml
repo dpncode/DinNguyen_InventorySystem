@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="add_part" fx:id="modifyPartInhouse" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="modify_part" fx:controller="view_controller.InhouseController" fx:id="modifyInhouse" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="29.0" layoutY="25.0" text="Modify Part">
          <font>
@@ -12,7 +12,7 @@
          </font>
       </Label>
       <RadioButton layoutX="133.0" layoutY="25.0" mnemonicParsing="false" selected="true" text="In-House" />
-      <RadioButton fx:id="OSradio" layoutX="261.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#showOutsourcePart" text="Outsourced">
+      <RadioButton fx:id="modifyOSradio" layoutX="261.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#showModifyOutsourcedPart" text="Outsourced">
          <toggleGroup>
             <ToggleGroup fx:id="radio" />
          </toggleGroup></RadioButton>

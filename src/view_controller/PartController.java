@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 public class PartController implements Initializable {
     @FXML
-    private TableView<Part> table;
+    private TableView<Part> partTableView;
     @FXML
     private TableColumn<Part, Integer> part_id;
     @FXML
@@ -72,11 +72,15 @@ public class PartController implements Initializable {
         System.out.println(text5);
         //pc.getValues,maxFld.getText(),machineFld.getText(),minFld.getText());
         String name = text;
+
+        //wrap methods to convert from string to integer or double
         int inv = Integer.parseInt(text1);
         double price = Double.parseDouble(text2);
         int max = Integer.parseInt(text3);
         int macine = Integer.parseInt(text4);
         int min = Integer.parseInt(text5);
+
+        //creating random ID parts
         Random rand = new Random();
         int id = rand.nextInt(10000);
         InHouse inc = new InHouse(id, name, price, inv, min, max, macine);
@@ -96,7 +100,6 @@ public class PartController implements Initializable {
         //TODO: to show values to the mainscreen
     }
 
-
     //method to redirect to modify_InhousePart.fxml
     public void modifyInhouse(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) exitBtn.getScene().getWindow();//closing background window
@@ -106,6 +109,8 @@ public class PartController implements Initializable {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+
 
     public void deleteInhouse(MouseEvent mouseEvent) {
         System.out.println("delete Inhouse");
@@ -184,20 +189,17 @@ public class PartController implements Initializable {
      * @param resources The resources used to localize the root object, or <tt>null</tt> if
      */
 
-
     @Override
 //Main method - first method to be called
     public void initialize(URL location, ResourceBundle resources) {
-
+        partTableView.setItems(Inventory.getAllParts()); //();
 
         part_id.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));//calling getID method from Part.java class
         part_name.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
         cost.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
         inv_level.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
         list.addAll(Inventory.getAllParts());
-        System.out.println(Inventory.getAllParts());
-        table.setItems(Inventory.getAllParts()); //();
-
+        //System.out.println(Inventory.getAllParts()); //testing
 
     }
 }

@@ -20,9 +20,11 @@ public class OutsourcedController {
     @FXML
     private TextField nameFld, inventoryFld, priceFld, maxFld, companyFld, minFld;
     @FXML
-    private RadioButton IHradio;//Radio toggle to Inhouse screen
+    private RadioButton IHradio, modifyIHradio;//add and modify part radio toggles to Inhouse screen
     int id = 0;
     ArrayList<Outsourced> outSourced = new ArrayList<Outsourced>();
+    //@FXML
+    //private Button exitBtn; //Exit Button ID defined to fetch the button click
 
     public void addOutsourced(){
     }
@@ -39,6 +41,7 @@ public class OutsourcedController {
         System.out.println("Save to OutsourcedPart");
         //Todo: save outsourced part
 
+        //Wrap methods to convert strings into integer or double
         String name = nameFld.getText();
         int inventory = Integer.parseInt(inventoryFld.getText());
         double price = Double.parseDouble(priceFld.getText()); //the value that came from the gui is string so we are converting it to double using parse
@@ -53,14 +56,15 @@ public class OutsourcedController {
         //create a reference of PartController
         PartController pc = new PartController();
         pc.getValues(nameFld.getText(),inventoryFld.getText(),priceFld.getText(),maxFld.getText(),companyFld.getText(),minFld.getText());
-        System.out.println("test");
-    }
 
+        //Stage stage = (Stage) exitBtn.getScene().getWindow();//closing background window
+        //stage.close();//closing background window
+    }
 
 
     //radio button method to toggle from outsourced to inhouse
     public void showInhousePart(MouseEvent mouseEvent) throws IOException {
-        System.out.println("radio inhouse button selected ");
+        System.out.println("add part radio inhouse button selected ");
         Stage stage = (Stage) IHradio.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("/view_controller/add_InhousePart.fxml"));
@@ -71,6 +75,18 @@ public class OutsourcedController {
         primaryStage.setScene(new Scene(root));
         //show is the method to show the loaded file
         primaryStage.show();
+    }
+
+    public void showModifyInhousePart(MouseEvent mouseEvent) throws IOException {
+        System.out.println("modify part radio inhouse button selected ");
+        Stage stage = (Stage) modifyIHradio.getScene().getWindow();
+        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("/view_controller/modify_InhousePart.fxml"));
+        System.out.println(root);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+
     }
 }
 

@@ -19,13 +19,9 @@ public class InhouseController {
     @FXML
     private TextField nameFld,inventoryFld,priceFld,maxFld,machineFld,minFld;
     @FXML
-    private RadioButton OSradio;//Radio toggle to Outsourced screen
+    private RadioButton OSradio, modifyOSradio;//add and modify part radio toggles to Outsourced screen
     int id = 0;
     ArrayList<InHouse> inHouse = new ArrayList<InHouse>();
-
-    public void addInhouse(){
-
-    }
 
     public void saveInhousePart(MouseEvent mouseEvent) {
         InhouseController ic = new InhouseController();//Inhouse arraylist
@@ -51,9 +47,9 @@ public class InhouseController {
         }
     }
 
-    //radio button method to toggle from inhouse to outsourced
-    public void showOutsourcePart(MouseEvent mouseEvent) throws IOException {
-        System.out.println("radio outsourced button selected ");
+    //Add Part radio button method to toggle from inhouse to outsourced
+    public void showOutsourcedPart(MouseEvent mouseEvent) throws IOException {
+        System.out.println("add part radio outsourced button selected");
         Stage stage = (Stage) OSradio.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource("/view_controller/add_OutsourcedPart.fxml"));
@@ -64,7 +60,20 @@ public class InhouseController {
         primaryStage.setScene(new Scene(root));
         //show is the method to show the loaded file
         primaryStage.show();
-        System.out.println("test");
+        //System.out.println("test");
+    }
+
+    //Modify part radio button method to toggle from inhouse to outsourced
+    public void showModifyOutsourcedPart(MouseEvent mouseEvent) throws IOException {
+        System.out.println("modify part radio outsourced button selected");
+        Stage stage = (Stage) modifyOSradio.getScene().getWindow();
+        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("/view_controller/modify_OutsourcedPart.fxml"));
+        System.out.println(root);
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+
     }
 
 }

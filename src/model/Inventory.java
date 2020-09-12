@@ -1,17 +1,13 @@
 package model;
 
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
-
-
 public class Inventory {
+    /**
+     * observableArrayList() is an object (similar to an ArrayList) that can be referenced
+     * by an Obervablelist reference
+     */
     private static ObservableList<Part> allParts = FXCollections.observableArrayList(); //new ObservableList<Part>() { //   - allParts:ObservableList<Part> this is used for javafx listener
 
     public static void addPart(Part newPart) {   //+ addPart(newPart:Part):void  method from Part class
@@ -23,6 +19,12 @@ public class Inventory {
     }
 
 
+
+
+
+
+
+/*
     ObservableList<Product> allProducts = new ObservableList<Product>() { // - allProducts:ObservableList<Product>
         @Override
         public void addListener(ListChangeListener<? super Product> listener) {
@@ -190,6 +192,9 @@ public class Inventory {
         }
     };
 
+ */
+
+    /*
     public void addProduct(Product newProduct) { //  + addProduct(newProduct:Product):void
 
     }
@@ -233,6 +238,8 @@ public class Inventory {
     public ObservableList<Product> getAllProducts() {//+ getAllProducts():ObservableList<Product>
         return null;
     }
+
+     */
 
 
 }
