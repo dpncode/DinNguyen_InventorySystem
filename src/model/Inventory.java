@@ -1,6 +1,7 @@
 package model;
 
 import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
@@ -11,196 +12,15 @@ import java.util.ListIterator;
 
 
 public class Inventory {
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList(); //new ObservableList<Part>() { //   - allParts:ObservableList<Part> this is used for javafx listener
 
-    /*
-    - allParts:ObservableList<Part>
-- allProducts:ObservableList<Product>
-
-+ addPart(newPart:Part):void
-+ addProduct(newProduct:Product):void
-+ lookupPart(partId:int):Part
-+ lookupProduct(productId:int):Product
-+ lookupPart(partName:String):ObservableList<Part>
-+ lookupProduct(productName:String):ObservableList<Product>
-+ updatePart(index:int, selectedPart:Part):void
-+ updateProduct(index:int, newProduct:Product):void
-+ deletePart(selectedPart:Part):boolean
-+ deleteProduct(selectedProduct:Product):boolean
-+ getAllParts():ObservableList<Part>
-+ getAllProducts():ObservableList<Product>
-*/
-
-    /**
-     * observableArrayList() is an object (similar to an ArrayList) that can be referenced
-     * by an ObservableList reference
-     */
-
-ObservableList<Part> allParts = new ObservableList<Part>() { //   - allParts:ObservableList<Part> this is used for javafx listener
-    @Override
-    public void addListener(ListChangeListener<? super Part> listener) {
-
+    public static void addPart(Part newPart) {   //+ addPart(newPart:Part):void  method from Part class
+        allParts.add(newPart);
     }
 
-    @Override
-    public void removeListener(ListChangeListener<? super Part> listener) {
-
+    public static ObservableList<Part> getAllParts() { //+ getAllParts():ObservableList<Part>
+        return allParts;
     }
-
-    @Override
-    public boolean addAll(Part... elements) {
-        return false;
-    }
-
-    @Override
-    public boolean setAll(Part... elements) {
-        return false;
-    }
-
-    @Override
-    public boolean setAll(Collection<? extends Part> col) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Part... elements) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Part... elements) {
-        return false;
-    }
-
-    @Override
-    public void remove(int from, int to) {
-
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterator<Part> iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(Part part) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends Part> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends Part> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public Part get(int index) {
-        return null;
-    }
-
-    @Override
-    public Part set(int index, Part element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, Part element) {
-
-    }
-
-    @Override
-    public Part remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public ListIterator<Part> listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator<Part> listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List<Part> subList(int fromIndex, int toIndex) {
-        return null;
-    }
-
-    @Override
-    public void addListener(InvalidationListener listener) {
-
-    }
-
-    @Override
-    public void removeListener(InvalidationListener listener) {
-
-    }
-};
 
 
     ObservableList<Product> allProducts = new ObservableList<Product>() { // - allProducts:ObservableList<Product>
@@ -370,13 +190,7 @@ ObservableList<Part> allParts = new ObservableList<Part>() { //   - allParts:Obs
         }
     };
 
-
-
-    public void addPart(Part newPart){   //+ addPart(newPart:Part):void  method from Part class
-
-    }
-
-    public void addProduct(Product newProduct){ //  + addProduct(newProduct:Product):void
+    public void addProduct(Product newProduct) { //  + addProduct(newProduct:Product):void
 
     }
 
@@ -389,38 +203,33 @@ ObservableList<Part> allParts = new ObservableList<Part>() { //   - allParts:Obs
         return null;
     }
 
-    public ObservableList<Part> lookupPart(String partName){// //+ lookupPart(partName:String):ObservableList<Part>
+    public ObservableList<Part> lookupPart(String partName) {// //+ lookupPart(partName:String):ObservableList<Part>
         return null;
     }
 
-    public ObservableList<Product> lookupProduct(String productName){ //+ lookupProduct(productName:String):ObservableList<Product>
+    public ObservableList<Product> lookupProduct(String productName) { //+ lookupProduct(productName:String):ObservableList<Product>
         return null;
     }
 
-    public void updatePart(int index,Part selectedPart) {//+ updatePart(index:int, selectedPart:Part):void
+    public void updatePart(int index, Part selectedPart) {//+ updatePart(index:int, selectedPart:Part):void
 
     }
 
-    public void updateProduct(int index, Product newProduct){//+ updateProduct(index:int, newProduct:Product):void
+    public void updateProduct(int index, Product newProduct) {//+ updateProduct(index:int, newProduct:Product):void
 
     }
 
-    public boolean deletePart(Part selectedPart){//+ deletePart(selectedPart:Part):boolean
+    public boolean deletePart(Part selectedPart) {//+ deletePart(selectedPart:Part):boolean
         return true;
     }
 
-    public boolean deleteProduct(Product selectedProduct){//+ deleteProduct(selectedProduct:Product):boolean
+    public boolean deleteProduct(Product selectedProduct) {//+ deleteProduct(selectedProduct:Product):boolean
         return true;
     }
 
-    public ObservableList<Part> getAllParts(){ //+ getAllParts():ObservableList<Part>
+    public ObservableList<Product> getAllProducts() {//+ getAllProducts():ObservableList<Product>
         return null;
     }
-
-    public ObservableList<Product> getAllProducts(){//+ getAllProducts():ObservableList<Product>
-        return null;
-    }
-
 
 
 }

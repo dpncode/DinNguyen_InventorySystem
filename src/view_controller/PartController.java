@@ -1,22 +1,43 @@
 package view_controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.InHouse;
+import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-public class PartController {
-
-    @FXML private Button exitBtn; //Exit Button ID defined to fetch the button click
+public class PartController implements Initializable {
+    @FXML
+    private TableView<Part> table;
+    @FXML
+    private TableColumn<Part, Integer> part_id;
+    @FXML
+    private TableColumn<Part, String> part_name;
+    @FXML
+    private TableColumn<Part, Double> cost;
+    @FXML
+    private TableColumn<Part, Integer> inv_level;
+    @FXML
+    private Button exitBtn; //Exit Button ID defined to fetch the button click
     private InhouseController ConfirmBox;
+    ObservableList<Part> list = FXCollections.observableArrayList(
+            new InHouse(1, "test", 11, 34, 223, 44, 22)
+    );
 
     //Add Part button
     //this method is called whenever mouse is clicked on the respective button in our case add button of mainsceeen
@@ -38,6 +59,7 @@ public class PartController {
         //show is the method to show the loaded file
         primaryStage.show();
     }
+
     //this method gets the value of inhouse part from Inhouse controller
     public void getValues(String text, String text1, String text2, String text3, String text4, String text5) {
         System.out.println("these are the values from partcontroller ");
@@ -47,6 +69,28 @@ public class PartController {
         System.out.println(text3);
         System.out.println(text4);
         System.out.println(text5);
+        //pc.getValues,maxFld.getText(),machineFld.getText(),minFld.getText());
+        String name = text;
+        int inv = Integer.parseInt(text1);
+        double price = Double.parseDouble(text2);
+        int max = Integer.parseInt(text3);
+        int macine = Integer.parseInt(text4);
+        int min = Integer.parseInt(text5);
+        Random rand = new Random();
+        int id = rand.nextInt(10000);
+        InHouse inc = new InHouse(id, name, price, inv, min, max, macine);
+        list.addAll(inc);
+        Inventory.addPart(inc);
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/view_controller/mainscreen.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage primaryStage = new Stage();
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+      // Inventory
         //TODO: to show values to the mainscreen
     }
 
@@ -112,20 +156,46 @@ public class PartController {
      * Called when user clicks 'X' button
      * warns user before closing window
      * uses the AlertType.CONFIRMATION dialog box
+     *
      * @return
      */
 
-    private boolean ConfirmBox(){
+    private boolean ConfirmBox() {
         Boolean close = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         //alert.setContentText("This is a confirmation alert window");
         alert.setTitle("Confirmation box");
         alert.setHeaderText("Are you sure you want to close?");
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.isPresent() && result.get() == ButtonType.OK) {
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             close = true;
         }
         return close;
     }
 
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     */
+
+
+    @Override
+//Main method - first method to be called
+    public void initialize(URL location, ResourceBundle resources) {
+
+
+        part_id.setCellValueFactory(new PropertyValueFactory<Part, Integer>("id"));//calling getID method from Part.java class
+        part_name.setCellValueFactory(new PropertyValueFactory<Part, String>("name"));
+        cost.setCellValueFactory(new PropertyValueFactory<Part, Double>("price"));
+        inv_level.setCellValueFactory(new PropertyValueFactory<Part, Integer>("stock"));
+        list.addAll(Inventory.getAllParts());
+        System.out.println(Inventory.getAllParts());
+        table.setItems(Inventory.getAllParts()); //();
+
+
+    }
 }

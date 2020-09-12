@@ -37,18 +37,6 @@ public class InhouseController {
         System.out.println(machineFld.getText());
         System.out.println(minFld.getText());
         System.out.println("Saved to InHouse list");
-        //Todo: save inhouse part
-
-        String name = nameFld.getText();
-        int inventory = Integer.parseInt(inventoryFld.getText());
-        double price = Double.parseDouble(priceFld.getText()); //the value that came from the gui is string so we are converting it to double using parse
-        int min  = Integer.parseInt(minFld.getText());
-        int max = Integer.parseInt(maxFld.getText());
-        int machineId = Integer.parseInt(machineFld.getText());
-        id=+1;//ID auto generated, auto increment
-        inHouse.add(new InHouse(id,name,price,inventory,min,max,machineId));
-
-        //InHouse inh = new InHouse(11,)
         //send the values to PartController
         //create a reference of PartController
         PartController pc = new PartController();
