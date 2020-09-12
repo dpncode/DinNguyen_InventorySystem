@@ -39,6 +39,7 @@ public class PartController implements Initializable {
             new InHouse(1, "test", 11, 34, 223, 44, 22)
     );
 
+    //test to git
     //Add Part button
     //this method is called whenever mouse is clicked on the respective button in our case add button of mainsceeen
     public void showInhouse(MouseEvent mouseEvent) throws IOException {
