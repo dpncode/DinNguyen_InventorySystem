@@ -41,7 +41,7 @@ public class InhouseController {
         //create a reference of PartController
         PartController pc = new PartController();
         pc.getValues(nameFld.getText(),inventoryFld.getText(),priceFld.getText(),maxFld.getText(),machineFld.getText(),minFld.getText());
-
+        System.out.println(pc);
     }
     //example code to display the added part
     //Todo: to be used later to display in the table

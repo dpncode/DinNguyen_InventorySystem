@@ -220,7 +220,10 @@ public class Inventory {
     }
 
     public boolean deletePart(Part selectedPart) {//+ deletePart(selectedPart:Part):boolean
+
+
         return true;
+
     }
 
     public boolean deleteProduct(Product selectedProduct) {//+ deleteProduct(selectedProduct:Product):boolean

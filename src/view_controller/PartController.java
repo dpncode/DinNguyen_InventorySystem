@@ -86,6 +86,7 @@ public class PartController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/view_controller/mainscreen.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("test");
         }
         Stage primaryStage = new Stage();
         primaryStage.setScene(new Scene(root));
